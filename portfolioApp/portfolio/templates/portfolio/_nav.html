@@ -1,0 +1,14 @@
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a></li>
+        <li><a href="{% url 'list_posts' %}" class="{% if request.resolver_match.url_name == 'list_posts' %}active{% endif %}">Blog Posts</a></li>
+        <li><a href="{% url 'github_repos' %}" class="{% if request.resolver_match.url_name == 'github_repos' %}active{% endif %}">My GitHub Repos</a></li>
+    </ul>
+</nav>
+{% if request %}
+    <p>Request object is available.</p>
+{% else %}
+    <p>Request object is NOT available.</p>
+{% endif %}
+
+<h2>{{ request.resolver_match.url_name }}</h2>

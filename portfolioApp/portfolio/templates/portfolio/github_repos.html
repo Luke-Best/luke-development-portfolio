@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+        <title>GitHub Repositories</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1>GitHub Repositories</h1>
+            {% include 'portfolio/_nav.html' %}
+        </header>
+        <ul>
+        {% for repo in repos %}
+            <li>
+                <a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a> - {{ repo.description }}
+            </li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>

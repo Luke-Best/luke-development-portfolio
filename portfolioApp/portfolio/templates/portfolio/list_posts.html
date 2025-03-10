@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <title>Blog Posts</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1>All Blog Posts</h1>
+            {% include 'portfolio/_nav.html' %}
+        </header>
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <a href="post/{{ post.id }}/">{{ post.title }}</a>
+                    <p>{{ post.created_at }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
